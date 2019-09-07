@@ -1,22 +1,12 @@
 const express = require('express')
 const app = express()
-// const port = 3000
 const port = process.env.PORT || 5000
 
+const test_routes = require('./test_routes')
+
 app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send() )
+app.use('/j', test_routes)
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-
-
-// const cool = require('cool-ascii-faces')
-// const express = require('express')
-// const path = require('path')
-// const PORT = process.env.PORT || 5000
-
-// express()
-//     .use(express.static(path.join(__dirname, 'public')))
-//     .set('views', path.join(__dirname, 'views'))
-//     .set('view engine', 'ejs')
-//     // .get('/', (req, res) => res.render('pages/index'))
-//     .get('/cool', (req, res) => res.send(cool()))
-//     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
